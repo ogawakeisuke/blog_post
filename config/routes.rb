@@ -1,7 +1,7 @@
 BlogPost::Application.routes.draw do
   get "post_blogs/index"
 
-  get "post_blogs/post"
+  post "post_blogs/post"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -52,7 +52,7 @@ BlogPost::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'post_blogs#index'
 
   # See how all your routes lay out with "rake routes"
 

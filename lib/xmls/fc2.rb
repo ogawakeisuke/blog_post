@@ -29,18 +29,18 @@ module Xmls
         # p  error.faultString
         return false
       end
-    
+
+      return true
     end
 
     def self.imagepost(file_path, blogid = SetConst::APIID, user = SetConst::APINAME, passwd = SetConst::APIPASS)
       filename = File.basename(file_path)
 
-      p filename
-      open(filename, 'wb') do |file|
-        open(file_path) do |data|
-          file.write(data.read)
-        end
-      end
+      # open(filename, 'wb') do |file|
+      #   open(file_path) do |data|
+      #     file.write(data.read)
+      #   end
+      # end
 
       base64 = XMLRPC::Base64.new(File.read(filename))
       fileHash = {
@@ -58,7 +58,7 @@ module Xmls
         return false
       end
     
-      return r.url
+      return r["url"]
     end
 
   end
