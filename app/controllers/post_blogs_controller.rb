@@ -7,7 +7,10 @@ class PostBlogsController < ApplicationController
 
   def post
     image = params[:images].read
-    star = params[:star]
+    star = params[:star].to_i
+    comment = params[:star]
+    shop_name = params[:shop_name]
+    menu_name = params[:menu_name]
 
     upploaded_url = Xmls::Fc2.imagepost(image)
     unless upploaded_url
@@ -15,9 +18,9 @@ class PostBlogsController < ApplicationController
       return 
     end
 
-    title = "#{star}つ星です"
+    title = "#{shop_name}に行ってまいりました"
     image_expression = self.class.helpers.image_expression(upploaded_url)
-    textbody = "#{image_expression}, #{star}, ごちそうさま"
+    textbody = Desc.compose_textbody(shop_name, menu_name, star, comment, image_expression)
 
     blogpost = Xmls::Fc2.blogpost(title, textbody)
     unless blogpost

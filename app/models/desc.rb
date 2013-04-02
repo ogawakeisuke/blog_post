@@ -41,4 +41,18 @@ class Desc < ActiveRecord::Base
 
   #=======
 
+  #TODO もっと細かくリファクタリング
+  def self.compose_textbody(shop_name, menu_name, star, comment, image_tags)
+    #star使ってない
+    first = self.where(:phase_state => Phase::FIRST).sample
+    friend = self.where(:phase_state => Phase::FRIEND).sample
+    picture = self.where(:phase_state => Phase::PICTURE).sample
+    last = self.where(:phase_state => Phase::LAST).sample
+
+    first.set_value_to_menu(menu_name)
+    first.set_value_to_shop(shop_name)
+
+    return "#{first.description} #{friend.description} #{picture.description} #{image_tags} <br> #{comment} #{last.description}"
+  end
+
 end
