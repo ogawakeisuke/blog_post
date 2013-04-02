@@ -1,0 +1,29 @@
+<%= form_for(@desc) do |f| %>
+  <% if @desc.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@desc.errors.count, "error") %> prohibited this desc from being saved:</h2>
+
+      <ul>
+      <% @desc.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :phase_state %><br />
+    <%= f.select(:phase_state, options_for_select(@phase_collection)) %>
+  </div>
+  <div class="field">
+    <%= f.label :star_state %><br />
+    <%= f.select(:star_state, options_for_select(@star_collection)) %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

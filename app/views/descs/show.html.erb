@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Phase state:</b>
+  <%= @desc.phase_state %>
+</p>
+
+<p>
+  <b>Star state:</b>
+  <%= @desc.star_state %>
+</p>
+
+<p>
+  <b>description:</b>
+  <%= @desc.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_desc_path(@desc) %> |
+<%= link_to 'Back', descs_path %>

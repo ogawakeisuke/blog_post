@@ -1,6 +1,10 @@
 BlogPost::Application.routes.draw do
-  get "post_blogs/index"
+  resources :descs do
+    get 'debug_index' => 'descs#debugs', :on => :collection
+  end
 
+
+  get "post_blogs/index"
   post "post_blogs/post"
 
   # The priority is based upon order of creation:

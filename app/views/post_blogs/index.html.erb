@@ -1,12 +1,28 @@
+<%= link_to "CMSへ", :controller => :descs, :action => :index%>
 <h1>PostBlogs#index</h1>
-<p>Find me in app/views/post_blogs/index.html.erb</p>
 
 <%= form_tag({:action => :post}, {:multipart => true}) do %>
-  <%= label_tag :star %>
-  <%= select_tag(:star, options_for_select(@stars) ) %>
+<ul>
+  <li>
+    <%= label_tag :star %>
+    <%= select_tag(:star, options_for_select(@stars) ) %>
+    <%= label_tag :shop_name %>
+    <%= text_field_tag(:shop_name, nil) %>
+  </li>
+</ul>
 
-  <%= label_tag :images %>
-  <%= file_field_tag :images %>
+<ul>
+  <li>
+    <%= label_tag :comment %>
+    <%= text_field_tag :comment, nil %>
+  </li>
+  <li>
+    <%= label_tag :images %>
+    <%= file_field_tag :images %>
+  </li>
+</ul>
+
 
   <%= submit_tag %>
 <% end %>
+</ul>

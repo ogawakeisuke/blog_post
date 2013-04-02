@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  phase_state: 1
+  star_state: MyString
+  description: MyText
+
+two:
+  phase_state: 1
+  star_state: MyString
+  description: MyText

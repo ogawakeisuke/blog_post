@@ -1,0 +1,27 @@
+<h1>Listing descs</h1>
+
+<table>
+  <tr>
+    <th>Phase state</th>
+    <th>Star state</th>
+    <th>description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @descs.each do |desc| %>
+  <tr>
+    <td><%= desc.phase_state %></td>
+    <td><%= desc.star_state %></td>
+    <td><%= desc.description %></td>
+    <td><%= link_to 'Show', desc %></td>
+    <td><%= link_to 'Edit', edit_desc_path(desc) %></td>
+    <td><%= link_to 'Destroy', desc, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Desc', new_desc_path %>
