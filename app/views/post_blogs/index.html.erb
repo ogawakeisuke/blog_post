@@ -1,7 +1,7 @@
 <h1>PostBlogs#index</h1>
 <p>Find me in app/views/post_blogs/index.html.erb</p>
 
-<%= form_tag :action => :post do %>
+<%= form_tag({:action => :post}, {:multipart => true}) do %>
   <%= label_tag :star %>
   <%= select_tag(:star, options_for_select(@stars) ) %>
 

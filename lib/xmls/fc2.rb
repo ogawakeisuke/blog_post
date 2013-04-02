@@ -33,16 +33,15 @@ module Xmls
       return true
     end
 
-    def self.imagepost(file_path, blogid = SetConst::APIID, user = SetConst::APINAME, passwd = SetConst::APIPASS)
-      filename = File.basename(file_path)
+    def self.imagepost(image, blogid = SetConst::APIID, user = SetConst::APINAME, passwd = SetConst::APIPASS)
 
-      # open(filename, 'wb') do |file|
+      # open("public/images#{filename}", 'wb') do |file|
       #   open(file_path) do |data|
       #     file.write(data.read)
       #   end
       # end
 
-      base64 = XMLRPC::Base64.new(File.read(filename))
+      base64 = XMLRPC::Base64.new(image)
       fileHash = {
         :name => "#{Time.now.to_i}.png",
         :bits => base64
