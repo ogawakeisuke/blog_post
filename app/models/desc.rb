@@ -51,6 +51,7 @@ class Desc < ActiveRecord::Base
 
     first.set_value_to_menu(menu_name)
     first.set_value_to_shop(shop_name)
+    picture.set_value_to_menu(menu_name)
 
     return "#{first.description} #{friend.description} #{picture.description} #{image_tags} <br> #{comment} #{last.description}"
   end
