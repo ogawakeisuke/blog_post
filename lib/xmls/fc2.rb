@@ -21,7 +21,7 @@ module Xmls
         # "mt_excerpt" => excerpt 
       }
       #TODO ここは独立させるべき
-      client = XMLRPC::Client.new("blog.fc2.com", "/xmlrpc.php")
+      client = XMLRPC::Client.new("blog.dtiblog.com", "/xmlrpc.php")
       begin 
         r = client.call("metaWeblog.newPost", blogid, user, passwd, content, true)
       rescue XMLRPC::FaultException => error
@@ -47,7 +47,7 @@ module Xmls
         :bits => base64
       }
       
-      client = XMLRPC::Client.new("blog.fc2.com", "/xmlrpc.php")
+      client = XMLRPC::Client.new("blog.dtiblog.com", "/xmlrpc.php")
 
       begin 
         r = client.call("metaWeblog.newMediaObject",blogid, user, passwd,fileHash)
