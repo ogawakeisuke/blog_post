@@ -4,11 +4,11 @@
 <%= form_tag({:action => :post}, {:multipart => true}) do %>
 <ul>
   <li>
-    <%= label_tag :star %>
+    <%= label_tag "何つ星？" %>
     <%= select_tag(:star, options_for_select(@stars) ) %>
-    <%= label_tag :shop_name %>
+    <%= label_tag "店の名前" %>
     <%= text_field_tag(:shop_name, nil) %>
-    <%= label_tag :menu_name %>
+    <%= label_tag "食ったもの" %>
     <%= text_field_tag(:menu_name, nil) %>
   </li>
 </ul>
@@ -19,6 +19,7 @@
     <%= text_field_tag :comment, nil %>
   </li>
   <li>
+    <h3>画像をアップする。アップしないとエラーになる。</h3>
     <%= label_tag :images %>
     <%= file_field_tag :images %>
   </li>
