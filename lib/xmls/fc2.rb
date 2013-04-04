@@ -5,8 +5,8 @@ module Xmls
   require "xmlsimple"
 
   module SetConst
-    HOST = "http://blog.fc2.com/xmlrpc.php"
-    APIID = "shibulunch"
+    #HOST = "http://blog.fc2.com/xmlrpc.php"
+    APIID = "4500536"
     APINAME = "syoukaro@gmail.com"
     APIPASS = "super123super"
   end
@@ -21,7 +21,7 @@ module Xmls
         # "mt_excerpt" => excerpt 
       }
       #TODO ここは独立させるべき
-      client = XMLRPC::Client.new("blog.fc2.com", "/xmlrpc.php")
+      client = XMLRPC::Client.new("blog.seesaa.jp", "/rpc")
       begin 
         r = client.call("metaWeblog.newPost", blogid, user, passwd, content, true)
       rescue XMLRPC::FaultException => error
